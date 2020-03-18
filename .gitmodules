@@ -1,0 +1,3 @@
+[submodule "uaa-source"]
+	path = uaa-source
+	url = https://github.com/cloudfoundry/uaa.git

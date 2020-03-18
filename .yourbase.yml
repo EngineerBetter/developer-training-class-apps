@@ -1,29 +1,30 @@
 dependencies:
   runtime:
     - java:8.202.08
-    - maven:3.3.3
+    - gradle:6.2.1
   build:
     - java:8.202.08
-    - maven:3.3.3
+    - gradle:6.2.1
 
 # Build targets
 build_targets:
   - name: default
     container:
       image: yourbase/yb_ubuntu:18.04
+    root: uaa-source
     commands:
-      - mvn package
+      - gradlew clean assemble
 
   - name: test
     commands:
-      - mvn package
+      - gradlew clean assemble
 
   - name: container_build
     container:
       image: yourbase/yb_ubuntu:18.04
       workdir: /code
     commands:
-      - mvn package
+      - gradlew clean assemble
 
   - name: accelerated
     tags:
